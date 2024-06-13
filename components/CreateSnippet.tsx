@@ -80,9 +80,17 @@ export default function CreateSnippet() {
                         onSubmit={handleSubmit(onSubmit)}
                         className="flex flex-col gap-3 justify-center items-center text-black"
                     >
-                        <input type="text" {...register("name")} />
-                        <textarea {...register("code")} />
-                        <input type="text" {...register("description")} />
+                        <input
+                            type="text"
+                            {...register("name")}
+                            placeholder="name"
+                        />
+                        <textarea {...register("code")} placeholder="code" />
+                        <input
+                            type="text"
+                            {...register("description")}
+                            placeholder="description"
+                        />
                         <select {...register("language")}>
                             {Object.entries(Language).map(([key, value]) => (
                                 <option key={key} value={key}>
