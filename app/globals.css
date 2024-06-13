@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 200 20% 98%;
+        --btn-background: 200 10% 91%;
+        --btn-background-hover: 200 10% 89%;
+        --foreground: 200 50% 3%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --background: 224 28% 14%;
+            --btn-background: 172 59% 47%;
+            --btn-background-hover: 172 59% 42%;
+            --foreground: 180 100% 96%;
+            /*  */
+        }
+    }
+}
+
+@layer base {
+    * {
+        @apply border-foreground/20;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        width: 0.001rem;
+    }
+
+    .content {
+        height: calc(100vh - 3rem);
+    }
+
+    .tooltip {
+        @apply relative
+        before:content-[attr(data-tooltip)]
+        before:absolute
+        before:px-3 
+        before:py-2 
+        before:left-1/2 
+        before:-top-[4.6rem]
+        before:w-max
+        before:max-w-xs
+        before:text-xs
+        before:-translate-x-1/2 
+        before:translate-y-full 
+        before:bg-gray-700 
+        before:text-white
+        before:rounded-md 
+        before:opacity-0 
+        before:transition-all
+
+        after:absolute
+        after:left-1/2 after:-top-3
+        after:size-0
+        after:-translate-x-1/2 after:border-8
+        after:border-t-gray-700
+        after:border-l-transparent
+        after:border-b-transparent
+        after:border-r-transparent
+        after:opacity-0
+        after:transition-all
+
+        hover:before:opacity-100 hover:after:opacity-100;
+    }
+}
+
+.animate-in {
+    animation: animateIn 0.3s ease 0.15s both;
+}
+
+@keyframes animateIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
