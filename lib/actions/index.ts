@@ -17,7 +17,7 @@ export async function signIn(email: string) {
         email: email,
         options: {
             // set this to false if you do not want the user to be automatically signed up
-            shouldCreateUser: false,
+            shouldCreateUser: true,
         },
     });
 
